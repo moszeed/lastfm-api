@@ -1,7 +1,7 @@
 {
   "name": "lastfm-api",
   "version": "0.1.0",
-  "description": "Last.FM API Client",
+  "description": "a Last.FM API Client for Node and the Browser",
   "main": "./index.js",
   "scripts": {
     "test": "npm run test:node && npm run test:browser",

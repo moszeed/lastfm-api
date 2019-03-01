@@ -6,8 +6,8 @@
 
     let lastFm = null;
 
-    const apiKey = 'b49f3c3f05384fe87e55482d5796cc7b';
-    const apiSecret = 'b11fe7452829588f5cf71f625ff7a278';
+    const apiKey = '<-- your apiKey -->';
+    const apiSecret = '<-- <your apiSecret -->';
 
     test('create new instance of lastFmClient', (t) => {
         lastFm = new LastFmClient({
@@ -112,6 +112,74 @@
                 .then((response) => {
                     t.ok(response.artist, 'got artist');
                     t.ok(response.artist.name, 'Queens of the Stone Age', 'got correct artist');
+                    t.end();
+                })
+                .catch(t.end);
+        } catch (err) {
+            t.end(err);
+        }
+    });
+
+    test('album.getInfo', (t) => {
+        try {
+            lastFm.album.getInfo({ artist: 'Queens of the Stone Age', album: 'Songs for the Dead' })
+                .then((response) => {
+                    t.ok(response.album, 'got album');
+                    t.ok(response.album.artist, 'Queens of the Stone Age', 'got correct artist');
+                    t.ok(response.album.name, 'Songs for the Dead', 'got correct album');
+                    t.end();
+                })
+                .catch(t.end);
+        } catch (err) {
+            t.end(err);
+        }
+    });
+
+    test('chart.getTopArtists', (t) => {
+        try {
+            lastFm.chart.getTopArtists()
+                .then((response) => {
+                    t.ok(response.artists, 'got overall top artists');
+                    t.end();
+                })
+                .catch(t.end);
+        } catch (err) {
+            t.end(err);
+        }
+    });
+
+    test('geo.getTopArtists', (t) => {
+        try {
+            lastFm.geo.getTopArtists({ country: 'Germany' })
+                .then((response) => {
+                    t.ok(response.topartists, 'got overall top artists');
+                    t.end();
+                })
+                .catch(t.end);
+        } catch (err) {
+            t.end(err);
+        }
+    });
+
+    test('tag.getInfo', (t) => {
+        try {
+            lastFm.tag.getInfo({ tag: 'rock' })
+                .then((response) => {
+                    t.ok(response.tag.name, 'rock');
+                    t.end();
+                })
+                .catch(t.end);
+        } catch (err) {
+            t.end(err);
+        }
+    });
+
+    test('track.getInfo', (t) => {
+        try {
+            lastFm.track.getInfo({ artist: 'Queens of the Stone Age', track: 'No One Knows' })
+                .then((response) => {
+                    t.ok(response.track.name, 'No One Knows');
+                    t.ok(response.track.artist.name, 'Queens of the Stone Age');
                     t.end();
                 })
                 .catch(t.end);
