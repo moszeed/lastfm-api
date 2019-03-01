@@ -1,4 +1,4 @@
-# lastfm-api
+# lastfm-api-client
 a Last.FM API Client for Node and the Browser
 
 ##### Support
@@ -13,13 +13,13 @@ a Last.FM API Client for Node and the Browser
 
 ### How to install
 ```shell
-npm install lastfm-api
+npm install lastfm-api-client
 ```
 
 ### API usage
 
 ```javascript
-const LastFmApi = require('lastfm-api');
+const LastFmApi = require('lastfm-api-client');
 const LastFmClient = new LastFmApi({
     apiKey   : '<-- your last.fm api key -->',
     apiSecret: '<-- your last.fm api secret -->'

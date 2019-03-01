@@ -1,5 +1,5 @@
 {
-  "name": "lastfm-api",
+  "name": "lastfm-api-client",
   "version": "0.1.0",
   "description": "a Last.FM API Client for Node and the Browser",
   "main": "./index.js",

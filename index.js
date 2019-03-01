@@ -13,7 +13,7 @@
     const Tag = require('./api/tag.js');
     const Track = require('./api/track.js');
 
-    module.exports = LastFm;
+    module.exports = LastFmApiClient;
 
     function initalizeSubModule (subModule, bindTarget) {
         return Object.getOwnPropertyNames(subModule).reduce((store, funcName) => {
@@ -22,8 +22,8 @@
         }, {});
     }
 
-    function LastFm (params = {}) {
-        if (!(this instanceof LastFm)) return new LastFm(params);
+    function LastFmApiClient (params = {}) {
+        if (!(this instanceof LastFmApiClient)) return new LastFmApiClient(params);
         assert.ok(params.apiKey, 'no apiKey given');
 
         // save api params
